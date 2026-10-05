@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Left alarm bell -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 38.5,28 a 4.5,4.5 0 1 0 9,0 a 4.5,4.5 0 1 0 -9,0" />
+
+    <!-- Right alarm bell -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 60.5,28 a 4.5,4.5 0 1 0 9,0 a 4.5,4.5 0 1 0 -9,0" />
+
+    <!-- Clock circle outline -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2.5"
+        android:pathData="M 28,58 a 26,26 0 1 0 52,0 a 26,26 0 1 0 -52,0" />
+
+    <!-- Cardinal tick marks -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M 54,32 L 54,38" />
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M 80,58 L 74,58" />
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M 54,84 L 54,78" />
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M 28,58 L 34,58" />
+
+    <!-- Hour hand to ~10 o'clock (thick, short) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M 54,58 L 39,50" />
+
+    <!-- Minute hand (long, thin) pointing to 12 -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M 54,58 L 54,37" />
+
+    <!-- Scythe blade at minute hand tip — crescent curving left -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 54,37 C 51,30 44,28 43,33 C 43,37 49,39 54,37 Z" />
+
+    <!-- Center pivot dot -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 51,58 a 3,3 0 1 0 6,0 a 3,3 0 1 0 -6,0" />
+
+</vector>

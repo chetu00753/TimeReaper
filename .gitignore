@@ -1,0 +1,23 @@
+# Build outputs
+build/
+app/build/
+
+# Gradle
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+local.properties
+
+# Keystore — do not commit credentials
+*.jks
+*.keystore
+keystore.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Android generated
+captures/
+.externalNativeBuild/
+.cxx/
