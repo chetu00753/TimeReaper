@@ -1,6 +1,6 @@
 package com.timereaper.app.viewmodel
 
-import android.content.Context
+import androidx.activity.ComponentActivity
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,7 +18,7 @@ class AlarmViewModel : ViewModel() {
         private set
     var startMinute by mutableStateOf(Calendar.getInstance().get(Calendar.MINUTE))
         private set
-    var count by mutableStateOf("5")
+    var count by mutableStateOf("2")
     var intervalMinutes by mutableStateOf("")
     var label by mutableStateOf("")
     var selectedPreset by mutableStateOf<QuickPreset?>(null)
@@ -26,6 +26,8 @@ class AlarmViewModel : ViewModel() {
     var result by mutableStateOf<AlarmResult?>(null)
         private set
     var isCreating by mutableStateOf(false)
+        private set
+    var progress by mutableStateOf(0 to 0)
         private set
     var showTimePicker by mutableStateOf(false)
 
@@ -44,21 +46,23 @@ class AlarmViewModel : ViewModel() {
         }
     }
 
-    fun createAlarms(context: Context) {
+    fun createAlarms(activity: ComponentActivity) {
         val countVal = count.toIntOrNull()?.coerceIn(1, 500) ?: return
         val intervalVal = intervalMinutes.toIntOrNull()?.coerceIn(1, 1440) ?: return
 
         isCreating = true
         result = null
+        progress = 0 to countVal
 
         viewModelScope.launch {
             val (created, skipped) = AlarmScheduler.schedule(
-                context = context,
+                activity = activity,
                 startHour = startHour,
                 startMinute = startMinute,
                 count = countVal,
                 intervalMinutes = intervalVal,
-                label = label.ifBlank { "Time Reaper" }
+                label = label.ifBlank { "Time Reaper" },
+                onProgress = { done, total -> progress = done to total }
             )
             result = AlarmResult(created = created, skipped = skipped)
             isCreating = false

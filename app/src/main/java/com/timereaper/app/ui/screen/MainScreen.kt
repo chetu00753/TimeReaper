@@ -65,7 +65,7 @@ fun MainScreen(
     viewModel: AlarmViewModel,
     isDark: Boolean,
     onToggleTheme: () -> Unit,
-    context: android.content.Context
+    context: androidx.activity.ComponentActivity
 ) {
     val scope = rememberCoroutineScope()
 
@@ -188,7 +188,7 @@ fun MainScreen(
                             color = MaterialTheme.colorScheme.onPrimary
                         )
                         Spacer(Modifier.width(10.dp))
-                        Text("Creating alarms…")
+                        Text("Creating alarm ${minOf(viewModel.progress.first + 1, viewModel.progress.second)} of ${viewModel.progress.second}…")
                     } else {
                         Icon(Icons.Default.Alarm, contentDescription = null)
                         Spacer(Modifier.width(8.dp))
